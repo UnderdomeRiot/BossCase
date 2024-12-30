@@ -11,6 +11,15 @@ import cases from "../config/config.json";
 const RAGMAN_ID = "5ac3b934156ae10c4430e83c";
 const ROUBLES_ID = "5449016a4bdc2d6f028b456f";
 
+const conflictingItemsPipe: string[] = [
+    //"5c0e842486f77443a74d2976",
+    "5c0919b50db834001b7ce3b9",
+    "5ea058e01dbce517f324b3e2",
+    "5f60c076f2bcbb675b00dac2",
+    "5a16ba61fcdbcb098008728a",
+    "6570a88c8f221f3b210353b7"
+]
+
 const conflictingItemsUbey: string[] = [
     "59e770f986f7742cbe3164ef",
     "572b7d8524597762b472f9d1",
@@ -216,7 +225,13 @@ class Mod implements IPostDBLoadMod {
             modify: (item) => {
                 item._props.ConflictingItems = conflictingItemsGorilla;
             }
-        }       
+        },       
+        {
+            id: "62a61bbf8ec41a51b34758d2", // Big Pipe's smoking pipe
+            modify: (item) => {
+                item._props.ConflictingItems = conflictingItemsPipe;
+            }
+        }
     ];
 
     private solveSpecificIncompatibilities(tables: any): void {
